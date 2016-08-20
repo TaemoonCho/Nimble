@@ -16,10 +16,12 @@ class MatchTest:XCTestCase, XCTestCaseProvider {
 
     func testMatchPositive() {
         expect("11:14").to(match("\\d{2}:\\d{2}"))
+        expect("nobody@flickr.com (ayjay3)").to(match("nobody@flickr.com (ayjay3)"))
     }
     
     func testMatchNegative() {
         expect("hello").toNot(match("\\d{2}:\\d{2}"))
+        expect("test1@test1.com").toNot(match("test2@test2.com"))
     }
     
     func testMatchPositiveMessage() {
